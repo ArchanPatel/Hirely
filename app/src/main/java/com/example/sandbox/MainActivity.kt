@@ -9,13 +9,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import com.example.sandbox.navigation.MainNavHost
 import com.example.sandbox.ui.theme.SandboxTheme
-import com.example.sandbox.viewmodel.MainViewmodel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,16 +26,17 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
 
         setContent {
-
             SandboxTheme {
                 val viewmodel = hiltViewModel<MainViewmodel>()
                 val navController = rememberNavController()
+                val uiState by viewmodel.uiState.collectAsState()
 
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     MainNavHost(
                         modifier = Modifier.padding(innerPadding),
                         navController = navController,
-                        viewmodel = viewmodel
+                        viewmodel = viewmodel,
+                        uiState = uiState
                     )
                 }
             }
