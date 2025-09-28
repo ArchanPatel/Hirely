@@ -16,7 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import com.example.sandbox.navigation.MainNavHost
-import com.example.sandbox.ui.theme.SandboxTheme
+import com.example.sandbox.theme.SandboxTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
