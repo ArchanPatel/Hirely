@@ -1,4 +1,4 @@
-package com.example.sandbox.ui.theme
+package com.example.sandbox.theme
 
 import androidx.compose.ui.graphics.Color
 

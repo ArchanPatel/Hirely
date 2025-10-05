@@ -1,5 +1,7 @@
 package com.example.sandbox.di
 
+import com.example.sandbox.datasource.IMainDataSource
+import com.example.sandbox.datasource.MainDataSource
 import com.example.sandbox.respository.IMainRepository
 import com.example.sandbox.respository.MainRepository
 import dagger.Binds
@@ -16,4 +18,10 @@ abstract class RepoModule {
     abstract fun bindMainRepository(
         mainRepository: MainRepository
     ): IMainRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindMainDataSource(
+        mainDataSource: MainDataSource
+    ): IMainDataSource
 }
