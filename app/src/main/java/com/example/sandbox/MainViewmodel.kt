@@ -27,6 +27,7 @@ class MainViewmodel @Inject constructor(
 
     init {
         getDomainData("stripe.com")
+        //TODO integrate more apis to create value
     }
 
     private fun getDomainData(domainName: String) {
